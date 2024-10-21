@@ -1,0 +1,167 @@
+ 1 warning found (use docker --debug to expand):
+ - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 62)
+[1021/225504.067135:ERROR:host_config.cc(89)] Failed to read /home/owner/.config/chrome-remote-desktop/host#1bec36cee75dea74d1f25085107fed91.json
+[1021/225504.364485:INFO:host_starter_base.cc(113)] User scopes:
+[1021/225504.364513:INFO:host_starter_base.cc(115)]    https://www.googleapis.com/auth/chromoting.directory
+[1021/225504.364522:INFO:host_starter_base.cc(115)]    https://www.googleapis.com/auth/userinfo.email
+[1021/225504.364540:INFO:host_starter_base.cc(115)]    openid
+[1021/225506.245874:INFO:daemon_controller_delegate_linux.cc(98)] 2024-10-21 22:55:06,224:INFO:User 'owner' is already a member of 'chrome-remote-desktop'.
+
+Host started successfully.
+.config/chrome-remote-desktop/host#c3c4d5db0871fd98c68567167a5faf2b.json
+ * Stopping Chrome Remote Desktop host for owner...                                                                                                                                 The daemon is not currently running
+                                                                                                                                                                             [ OK ]
+ * Starting Chrome Remote Desktop host for owner...                                                                                                                                 [1021/225507.594435:INFO:remoting_user_session.cc(759)] Daemon process started in the background, logging to '/tmp/chrome_remote_desktop_20241021_225507_dO1O5b'
+Using host_id: f0cf5549-bb8a-4485-af0c-a39e18bfb2f9
+Configuring crash reporting
+Launching pipewire
+Launching X server and X session.
+Setting up and launching session
+Starting /usr/lib/xorg/Xorg on display :20
+X server is active.
+Launching X session: ['/bin/sh', '/home/owner/.chrome-remote-desktop-session']
+Launching host process
+['/opt/google/chrome-remote-desktop/chrome-remote-desktop-host', '--host-config=-', '--audio-pipe-name=/tmp/pyxdg-runtime-dir-fallback-owner/crd_audio#USIRxX-4qW/fifo_output', '--ssh-auth-sockname=/tmp/chromoting.owner.ssh_auth_sock', '--signal-parent']
+Launching crash uploader
+wait() returned (73,65024)
+PipeWire process terminated
+Failure count for 'PipeWire' is now 1
+Sending SIGTERM to pipewire-pulse proc (pid=74)
+Sending SIGTERM to wireplumber proc (pid=75)
+Waiting before relaunching
+wait() returned (110,32512)
+Session process terminated
+Failure count for 'session' is now 1
+Sending SIGTERM to host proc (pid=112)
+Sending SIGTERM to crash-uploader proc (pid=114)
+Sending SIGTERM to display server proc (pid=80)
+Failure count for 'Display server' is now 0
+Failure count for 'host' is now 0
+Failure count for 'Crash uploader' is now 0
+Waiting before relaunching
+Launching pipewire
+Launching X server and X session.
+Setting up and launching session
+Starting /usr/lib/xorg/Xorg on display :20
+X server is active.
+Launching X session: ['/bin/sh', '/home/owner/.chrome-remote-desktop-session']
+Launching host process
+['/opt/google/chrome-remote-desktop/chrome-remote-desktop-host', '--host-config=-', '--audio-pipe-name=/tmp/pyxdg-runtime-dir-fallback-owner/crd_audio#USIRxX-4qW/fifo_output', '--ssh-auth-sockname=/tmp/chromoting.owner.ssh_auth_sock', '--signal-parent']
+Launching crash uploader
+wait() returned (119,65024)
+PipeWire process terminated
+Failure count for 'PipeWire' is now 2
+Sending SIGTERM to pipewire-pulse proc (pid=120)
+Sending SIGTERM to wireplumber proc (pid=121)
+Waiting before relaunching
+wait() returned (157,32512)
+Session process terminated
+Failure count for 'session' is now 2
+Sending SIGTERM to host proc (pid=160)
+Sending SIGTERM to crash-uploader proc (pid=161)
+Sending SIGTERM to display server proc (pid=127)
+Failure count for 'Display server' is now 0
+Failure count for 'host' is now 0
+Failure count for 'Crash uploader' is now 0
+Waiting before relaunching
+Launching pipewire
+Launching X server and X session.
+Setting up and launching session
+Starting /usr/lib/xorg/Xorg on display :20
+X server is active.
+Launching X session: ['/bin/sh', '/home/owner/.chrome-remote-desktop-session']
+Launching host process
+['/opt/google/chrome-remote-desktop/chrome-remote-desktop-host', '--host-config=-', '--audio-pipe-name=/tmp/pyxdg-runtime-dir-fallback-owner/crd_audio#USIRxX-4qW/fifo_output', '--ssh-auth-sockname=/tmp/chromoting.owner.ssh_auth_sock', '--signal-parent']
+Launching crash uploader
+wait() returned (168,65024)
+PipeWire process terminated
+Failure count for 'PipeWire' is now 3
+Sending SIGTERM to pipewire-pulse proc (pid=169)
+Sending SIGTERM to wireplumber proc (pid=170)
+Waiting before relaunching
+wait() returned (206,32512)
+Session process terminated
+Failure count for 'session' is now 3
+Sending SIGTERM to host proc (pid=208)
+Sending SIGTERM to crash-uploader proc (pid=210)
+Sending SIGTERM to display server proc (pid=178)
+Failure count for 'Display server' is now 0
+Failure count for 'host' is now 0
+Failure count for 'Crash uploader' is now 0
+Waiting before relaunching
+Launching pipewire
+Launching X server and X session.
+Setting up and launching session
+Starting /usr/lib/xorg/Xorg on display :20
+X server is active.
+Launching X session: ['/bin/sh', '/home/owner/.chrome-remote-desktop-session']
+Launching host process
+['/opt/google/chrome-remote-desktop/chrome-remote-desktop-host', '--host-config=-', '--audio-pipe-name=/tmp/pyxdg-runtime-dir-fallback-owner/crd_audio#USIRxX-4qW/fifo_output', '--ssh-auth-sockname=/tmp/chromoting.owner.ssh_auth_sock', '--signal-parent']
+Launching crash uploader
+wait() returned (217,65024)
+PipeWire process terminated
+Failure count for 'PipeWire' is now 4
+Sending SIGTERM to pipewire-pulse proc (pid=218)
+Sending SIGTERM to wireplumber proc (pid=219)
+Waiting before relaunching
+wait() returned (255,32512)
+Session process terminated
+Failure count for 'session' is now 4
+Sending SIGTERM to host proc (pid=258)
+Sending SIGTERM to crash-uploader proc (pid=259)
+Sending SIGTERM to display server proc (pid=225)
+Failure count for 'Display server' is now 0
+Failure count for 'host' is now 0
+Failure count for 'Crash uploader' is now 0
+Waiting before relaunching
+Launching pipewire
+Launching X server and X session.
+Setting up and launching session
+Starting /usr/lib/xorg/Xorg on display :20
+X server is active.
+Launching X session: ['/bin/sh', '/home/owner/.chrome-remote-desktop-session']
+Launching host process
+['/opt/google/chrome-remote-desktop/chrome-remote-desktop-host', '--host-config=-', '--audio-pipe-name=/tmp/pyxdg-runtime-dir-fallback-owner/crd_audio#USIRxX-4qW/fifo_output', '--ssh-auth-sockname=/tmp/chromoting.owner.ssh_auth_sock', '--signal-parent']
+Launching crash uploader
+wait() returned (262,65024)
+PipeWire process terminated
+Failure count for 'PipeWire' is now 5
+Sending SIGTERM to pipewire-pulse proc (pid=263)
+Sending SIGTERM to wireplumber proc (pid=264)
+Waiting before relaunching
+wait() returned (299,32512)
+Session process terminated
+Failure count for 'session' is now 5
+Sending SIGTERM to host proc (pid=301)
+Sending SIGTERM to crash-uploader proc (pid=303)
+Sending SIGTERM to display server proc (pid=268)
+Failure count for 'Display server' is now 0
+Failure count for 'host' is now 0
+Failure count for 'Crash uploader' is now 0
+Waiting before relaunching
+Launching pipewire
+Launching X server and X session.
+Setting up and launching session
+Starting /usr/lib/xorg/Xorg on display :20
+X server is active.
+Launching X session: ['/bin/sh', '/home/owner/.chrome-remote-desktop-session']
+Launching host process
+['/opt/google/chrome-remote-desktop/chrome-remote-desktop-host', '--host-config=-', '--audio-pipe-name=/tmp/pyxdg-runtime-dir-fallback-owner/crd_audio#USIRxX-4qW/fifo_output', '--ssh-auth-sockname=/tmp/chromoting.owner.ssh_auth_sock', '--signal-parent']
+Launching crash uploader
+wait() returned (306,65024)
+PipeWire process terminated
+Failure count for 'PipeWire' is now 6
+Sending SIGTERM to pipewire-pulse proc (pid=307)
+Sending SIGTERM to wireplumber proc (pid=308)
+Waiting before relaunching
+wait() returned (344,32512)
+Session process terminated
+Failure count for 'session' is now 6
+Sending SIGTERM to host proc (pid=346)
+Sending SIGTERM to crash-uploader proc (pid=348)
+Sending SIGTERM to display server proc (pid=312)
+Failure count for 'Display server' is now 0
+Failure count for 'host' is now 0
+Failure count for 'Crash uploader' is now 0
+Waiting before relaunching
+^Ccontext canceled
