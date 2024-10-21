@@ -13,35 +13,24 @@ RUN echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable mai
 RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 # INSTALL XFCE DESKTOP AND DEPENDENCIES
 RUN apt-get update && apt-get upgrade --assume-yes
-RUN apt-get install --assume-yes --fix-missing sudo
-RUN apt-get install --assume-yes --fix-missing wget
-RUN apt-get install --assume-yes --fix-missing apt-utils
-# RUN apt-get install --assume-yes --fix-missing xfce4 xvfb
-RUN apt-get install --assume-yes --fix-missing plasma-desktop
-RUN apt-get install --assume-yes --fix-missing desktop-base
-RUN apt-get install --assume-yes --fix-missing vim
-RUN apt-get install --assume-yes --fix-missing xscreensaver
-RUN apt-get install --assume-yes --fix-missing google-chrome-stable
-RUN apt-get install --assume-yes --fix-missing psmisc
-RUN apt-get install --assume-yes --fix-missing xserver-xorg-video-dummy
-RUN apt-get install --assume-yes --fix-missing ffmpeg
+RUN apt-get install --assume-yes --fix-missing sudo wget apt-utils xvfb xfce4 xbase-clients \
+    desktop-base vim xscreensaver google-chrome-stable psmisc python3-psutil xserver-xorg-video-dummy ffmpeg
 RUN apt-get install --assume-yes python3-packaging python3-xdg
 RUN apt-get install libutempter0
 RUN wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-RUN apt-get install --assume-yes --fix-missing ./chrome-remote-desktop_current_amd64.deb
+RUN dpkg --install chrome-remote-desktop_current_amd64.deb
+RUN apt-get install --assume-yes --fix-missing ibus-mozc mozc-utils-gui fonts-noto fonts-noto-cjk fonts-noto-color-emoji
 RUN apt-get install --assume-yes --fix-broken
-# ADD REPOS FOR JAPANESE
-RUN apt-get install --assume-yes --fix-missing ibus-mozc mozc-utils-gui fonts-noto-cjk fonts-noto-color-emoji
-# RUN bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
-RUN bash -c 'echo "/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland" > /etc/chrome-remote-desktop-session'
+RUN bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+
 RUN apt-get install --assume-yes firefox
 # ---------------------------------------------------------- 
 # SPECIFY VARIABLES FOR SETTING UP CHROME REMOTE DESKTOP
-ARG USER=owner
+ARG USER=myuser
 # use 6 digits at least
-ENV PIN=987654
+ENV PIN=123456
 ENV CODE=4/xxx
-ENV HOSTNAME=ubuntu-remote
+ENV HOSTNAME=myvirtualdesktop
 # ---------------------------------------------------------- 
 # ADD USER TO THE SPECIFIED GROUPS
 RUN adduser --disabled-password --gecos '' $USER
@@ -51,14 +40,12 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 RUN usermod -aG chrome-remote-desktop $USER
 USER $USER
 WORKDIR /home/$USER
-RUN mkdir -p ~/.config/chrome-remote-desktop
+RUN mkdir -p .config/chrome-remote-desktop
 RUN chown "$USER:$USER" .config/chrome-remote-desktop
 RUN chmod a+rx .config/chrome-remote-desktop
 RUN touch .config/chrome-remote-desktop/host.json
 RUN echo "/usr/bin/pulseaudio --start" > .chrome-remote-desktop-session
-# RUN echo "startxfce4 :1030" >> .chrome-remote-desktop-session
-RUN echo "/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland :1030" >> .chrome-remote-desktop-session
-
+RUN echo "startxfce4 :1030" >> .chrome-remote-desktop-session
 CMD \
    DISPLAY= /opt/google/chrome-remote-desktop/start-host --code=$CODE --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$HOSTNAME --pin=$PIN ; \
    HOST_HASH=$(echo -n $HOSTNAME | md5sum | cut -c -32) && \
