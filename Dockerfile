@@ -55,7 +55,7 @@ RUN mkdir -p ~/.config/chrome-remote-desktop
 RUN chown "$USER:$USER" .config/chrome-remote-desktop
 RUN chmod a+rx .config/chrome-remote-desktop
 RUN touch .config/chrome-remote-desktop/host.json
-# RUN echo "/usr/bin/pulseaudio --start" > .chrome-remote-desktop-session
+RUN echo "/usr/bin/pulseaudio --start" > .chrome-remote-desktop-session
 # RUN echo "startxfce4 :1030" >> .chrome-remote-desktop-session
 RUN echo "/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland :1030" >> .chrome-remote-desktop-session
 
