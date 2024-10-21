@@ -16,7 +16,8 @@ RUN apt-get update && apt-get upgrade --assume-yes
 RUN apt-get install --assume-yes --fix-missing sudo
 RUN apt-get install --assume-yes --fix-missing wget
 RUN apt-get install --assume-yes --fix-missing apt-utils
-RUN apt-get install --assume-yes --fix-missing xubuntu-desktop
+# RUN apt-get install --assume-yes --fix-missing xfce4 xvfb
+RUN apt-get install --assume-yes --fix-missing plasma-desktop
 RUN apt-get install --assume-yes --fix-missing desktop-base
 RUN apt-get install --assume-yes --fix-missing vim
 RUN apt-get install --assume-yes --fix-missing xscreensaver
@@ -31,8 +32,8 @@ RUN apt-get install --assume-yes --fix-missing ./chrome-remote-desktop_current_a
 RUN apt-get install --assume-yes --fix-broken
 # ADD REPOS FOR JAPANESE
 RUN apt-get install --assume-yes --fix-missing ibus-mozc mozc-utils-gui fonts-noto-cjk fonts-noto-color-emoji
-RUN bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
-
+# RUN bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+RUN bash -c 'echo "/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland" > /etc/chrome-remote-desktop-session'
 RUN apt-get install --assume-yes firefox
 # ---------------------------------------------------------- 
 # SPECIFY VARIABLES FOR SETTING UP CHROME REMOTE DESKTOP
@@ -50,7 +51,7 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 RUN usermod -aG chrome-remote-desktop $USER
 USER $USER
 WORKDIR /home/$USER
-RUN mkdir -p .config/chrome-remote-desktop
+RUN mkdir -p ~/.config/chrome-remote-desktop
 RUN chown "$USER:$USER" .config/chrome-remote-desktop
 RUN chmod a+rx .config/chrome-remote-desktop
 RUN touch .config/chrome-remote-desktop/host.json
