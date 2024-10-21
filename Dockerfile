@@ -21,16 +21,16 @@ RUN apt-get install --assume-yes --fix-missing desktop-base
 RUN apt-get install --assume-yes --fix-missing vim
 RUN apt-get install --assume-yes --fix-missing xscreensaver
 RUN apt-get install --assume-yes --fix-missing google-chrome-stable
-RUN apt-get install --assume-yes --fix-missing python-psutil
 RUN apt-get install --assume-yes --fix-missing psmisc
-RUN apt-get install --assume-yes --fix-missing python3-psutil
 RUN apt-get install --assume-yes --fix-missing xserver-xorg-video-dummy
 RUN apt-get install --assume-yes --fix-missing ffmpeg
 RUN apt-get install --assume-yes python3-packaging python3-xdg
 RUN apt-get install libutempter0
 RUN wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-RUN dpkg --install chrome-remote-desktop_current_amd64.deb
+RUN apt-get install --assume-yes --fix-missing ./chrome-remote-desktop_current_amd64.deb
 RUN apt-get install --assume-yes --fix-broken
+# ADD REPOS FOR JAPANESE
+RUN apt-get install --assume-yes --fix-missing ibus-mozc mozc-utils-gui fonts-noto-cjk fonts-noto-color-emoji
 RUN bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
 
 RUN apt-get install --assume-yes firefox
