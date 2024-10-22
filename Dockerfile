@@ -19,9 +19,9 @@ RUN apt-get install --assume-yes --fix-missing xvfb xfce4 xbase-clients
 RUN apt-get install --assume-yes --fix-missing desktop-base vim xscreensaver google-chrome-stable \
     psmisc python3-psutil xserver-xorg-video-dummy ffmpeg dbus-x11
 RUN apt-get install --assume-yes python3-packaging python3-xdg
-RUN apt-get install --assume-yes --fix-missing pipewire pipewire-pulse \
-    pipewire-audio-client-libraries \
-    gstreamer1.0-pipewire libspa-0.2-bluetooth libspa-0.2-jack
+# RUN apt-get install --assume-yes --fix-missing pipewire pipewire-pulse \
+#     pipewire-audio-client-libraries \
+#     gstreamer1.0-pipewire libspa-0.2-bluetooth libspa-0.2-jack
 RUN apt-get install libutempter0
 RUN wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 RUN apt-get install --assume-yes --fix-missing ./chrome-remote-desktop_current_amd64.deb

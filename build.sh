@@ -1,1 +1,1 @@
-docker build ./ -t The-Infinitys/docker-desktop
+docker buildx build --platform linux/amd64 ./ -t The-Infinitys/docker-desktop
