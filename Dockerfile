@@ -15,7 +15,7 @@ RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable 
 RUN apt-get update && apt-get upgrade --assume-yes
 RUN apt-get install --assume-yes --fix-missing sudo wget apt-utils 
 # RUN apt-get install --assume-yes --fix-missing xvfb xfce4 xbase-clients 
-RUN apt-get install --assume-yes --fix-missing plasma-desktop
+RUN apt-get install --assume-yes --fix-missing plasma-desktop xbase-clients
 RUN apt-get install --assume-yes --fix-missing desktop-base vim xscreensaver google-chrome-stable \
     psmisc python3-psutil xserver-xorg-video-dummy ffmpeg dbus-x11
 RUN apt-get install --assume-yes python3-packaging python3-xdg
