@@ -58,5 +58,6 @@ CMD \
    cp .config/chrome-remote-desktop/host#*.json $FILENAME ; \
    sudo service chrome-remote-desktop stop && \
    sudo service chrome-remote-desktop start && \
+   sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 && \
    echo $HOSTNAME && \
    sleep infinity & wait
