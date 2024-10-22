@@ -43,6 +43,7 @@ RUN mkhomedir_helper $USER
 RUN adduser $USER sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 RUN usermod -aG chrome-remote-desktop $USER
+RUN ibus-daemon -drxR
 USER $USER
 WORKDIR /home/$USER
 RUN mkdir -p .config/chrome-remote-desktop
