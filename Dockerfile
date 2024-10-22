@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM mcr.microsoft.com/devcontainers/universal:linux
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -14,8 +14,8 @@ RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable 
 # INSTALL XFCE DESKTOP AND DEPENDENCIES
 RUN apt-get update && apt-get upgrade --assume-yes
 RUN apt-get install --assume-yes --fix-missing sudo wget apt-utils 
-# RUN apt-get install --assume-yes --fix-missing xvfb xfce4 xbase-clients 
-RUN apt-get install --assume-yes --fix-missing plasma-desktop xbase-clients
+RUN apt-get install --assume-yes --fix-missing xvfb xfce4 xbase-clients 
+# RUN apt-get install --assume-yes --fix-missing plasma-desktop xbase-clients
 RUN apt-get install --assume-yes --fix-missing desktop-base vim xscreensaver google-chrome-stable \
     psmisc python3-psutil xserver-xorg-video-dummy ffmpeg dbus-x11
 RUN apt-get install --assume-yes python3-packaging python3-xdg
@@ -27,8 +27,8 @@ RUN wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.
 RUN apt-get install --assume-yes --fix-missing ./chrome-remote-desktop_current_amd64.deb
 RUN apt-get install --assume-yes --fix-missing ibus-mozc mozc-utils-gui fonts-noto fonts-noto-cjk fonts-noto-color-emoji
 RUN apt-get install --assume-yes --fix-broken
-# RUN bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
-RUN bash -c 'echo "exec /etc/X11/Xsession /usr/bin/startplasma-x11" > /etc/chrome-remote-desktop-session'
+RUN bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+# RUN bash -c 'echo "exec /etc/X11/Xsession /usr/bin/startplasma-x11" > /etc/chrome-remote-desktop-session'
 # ---------------------------------------------------------- 
 # SPECIFY VARIABLES FOR SETTING UP CHROME REMOTE DESKTOP
 ARG USER=owner
@@ -50,7 +50,7 @@ RUN chown "$USER:$USER" .config/chrome-remote-desktop
 RUN chmod a+rx .config/chrome-remote-desktop
 RUN touch .config/chrome-remote-desktop/host.json
 RUN echo "/usr/bin/pulseaudio --start" > .chrome-remote-desktop-session
-RUN echo "startx /usr/bin/startplasma-x11 :1030" >> .chrome-remote-desktop-session
+RUN echo "startxfce4 :1030" >> .chrome-remote-desktop-session
 CMD \
    DISPLAY= /opt/google/chrome-remote-desktop/start-host --code=$CODE --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$HOSTNAME --pin=$PIN ; \
    HOST_HASH=$(echo -n $HOSTNAME | md5sum | cut -c -32) && \
