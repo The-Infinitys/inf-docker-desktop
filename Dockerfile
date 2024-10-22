@@ -1,10 +1,10 @@
-FROM mcr.microsoft.com/devcontainers/universal:linux
+FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 # INSTALL SOURCES FOR CHROME REMOTE DESKTOP AND VSCODE
 RUN apt-get update && apt-get upgrade --assume-yes
-RUN apt-get --assume-yes install curl gpg wget
+RUN apt-get --assume-yes install curl gpg wget sudo dpkg
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg && \
     mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
