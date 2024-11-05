@@ -27,6 +27,7 @@ RUN wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.
 RUN apt-get install --assume-yes --fix-missing ./chrome-remote-desktop_current_amd64.deb
 RUN apt-get install --assume-yes --fix-missing ibus-mozc mozc-utils-gui fonts-noto fonts-noto-cjk fonts-noto-color-emoji
 RUN apt-get install --assume-yes --fix-missing firefox fonts-lyx
+RUN apt-get install --assume-yes --fix-missing code
 RUN apt-get install --assume-yes --fix-broken
 RUN bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
 # RUN bash -c 'echo "exec /etc/X11/Xsession /usr/bin/startplasma-x11" > /etc/chrome-remote-desktop-session'
