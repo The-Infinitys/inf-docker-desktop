@@ -6,15 +6,12 @@
 
 ## どういうものか
 
-[Chrome remote desktop]()を用いて、[Docker]()で構築したコンテナにアクセスし、スマホでも、タブレットでもブラウザさえあればどの端末でもUbuntuを触ることができます。
+[Chrome remote desktop](https://remotedesktop.google.com/)を用いて、[Docker](https://www.docker.com)で構築したコンテナにアクセスし、スマホでも、タブレットでもブラウザさえあればどの端末でもUbuntuを使うことができるようになるというものです。
 
 ## 特徴
 
-OSはUbuntuの最新版が使用できるようになっており、予めChromeがインストールされています。
+OSはUbuntuが使用できるようになっており、予めChromeやFirefox、vlcやgimpなどがインストールされています。
 また、フォントやibusが最初からインストールされ、起動してすぐに使えるようになっています。
-どこでミスをしたのかは知りませんが、`--no-sandbox`でないとアプリが起動しません
-
-(´∞ω∞)だれか解決方法を教えてください
 
 ## 使い方
 dockerをインストールし、
