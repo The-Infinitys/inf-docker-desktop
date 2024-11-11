@@ -54,6 +54,8 @@ RUN chmod a+rx .config/chrome-remote-desktop
 RUN touch .config/chrome-remote-desktop/host.json
 RUN echo "/usr/bin/pulseaudio --start" > .chrome-remote-desktop-session
 RUN echo "startxfce4 :1030" >> .chrome-remote-desktop-session
+RUN echo "xfce4-settings-manager" >> .chrome-remote-desktop-session
+RUN echo "ibus-daemon -drx" >> .chrome-remote-desktop-session
 CMD \
    DISPLAY= /opt/google/chrome-remote-desktop/start-host --code=$CODE --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$HOSTNAME --pin=$PIN ; \
    HOST_HASH=$(echo -n $HOSTNAME | md5sum | cut -c -32) && \
