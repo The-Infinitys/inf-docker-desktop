@@ -1,5 +1,5 @@
-name: vscodeserver
-run-name: ${{ github.actor }} runs server
+name: Infinity Docker Desktop
+run-name: ${{ github.actor }} runs inf-docker-desktop
 on: workflow_dispatch
 jobs:
   vs-code-server:
