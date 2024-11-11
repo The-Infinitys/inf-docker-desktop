@@ -65,6 +65,4 @@ CMD \
    sudo service chrome-remote-desktop start && \
    sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 && \
    echo $HOSTNAME && \
-   ibus-daemon -drx && \
-   xfce4-settings-manager && \
    sleep infinity & wait
