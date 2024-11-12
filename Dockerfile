@@ -66,6 +66,8 @@ CMD \
    sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 && \
    echo $HOSTNAME && \
    echo "
-   xconf-query -c xsettings -p /Net/ThemeName -s "Greybird-dark"
+   xconf-query -c xsettings -p /Net/ThemeName -s "Greybird-dark
+   ibus-setup
+   xfce4-settings-manager"
    " >> ./Desktop/setting-conf.sh && \
    sleep infinity & wait
