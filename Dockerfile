@@ -54,8 +54,6 @@ RUN chmod a+rx .config/chrome-remote-desktop
 RUN touch .config/chrome-remote-desktop/host.json
 RUN echo "/usr/bin/pulseaudio --start" > .chrome-remote-desktop-session
 RUN echo "startxfce4 :1030" >> .chrome-remote-desktop-session
-RUN echo "xfce4-settings-manager" >> .chrome-remote-desktop-session
-RUN echo "ibus-daemon -drx" >> .chrome-remote-desktop-session
 CMD \
    DISPLAY= /opt/google/chrome-remote-desktop/start-host --code=$CODE --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$HOSTNAME --pin=$PIN ; \
    HOST_HASH=$(echo -n $HOSTNAME | md5sum | cut -c -32) && \
@@ -65,5 +63,5 @@ CMD \
    sudo service chrome-remote-desktop start && \
    sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 && \
    echo $HOSTNAME && \
-   echo 'xfconf-query -c xsettings -p /Net/ThemeName -s "Greybird-dark" && ibus-daemon -drx && ibus-setup && xfce4-settings-manager && sudo apt update && sudo apt upgrade -y && exit' >> ./Desktop/set-conf.sh && \
+   echo 'xfconf-query -c xsettings -p /Net/ThemeName -s "Greybird-dark" && ibus-daemon -drx && ibus-setup && xfce4-settings-manager && sudo apt update && sudo apt upgrade -y && sudo apt install --fix-missing language-pack-ja && sudo update-locale LANG=ja_JP.UTF8 && locale && echo "Asia/Tokyo" | sudo tee /etc/timezone && sudo dpkg-reconfigure --frontend noninteractive tzdata && sudo apt install --fix-missing manpages-ja manpages-ja-dev && exit' >> ./Desktop/set-conf.sh && \
    sleep infinity & wait
