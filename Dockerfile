@@ -65,5 +65,5 @@ CMD \
    sudo service chrome-remote-desktop start && \
    sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 && \
    echo $HOSTNAME && \
-   echo 'xfconf-query -c xsettings -p /Net/ThemeName -s "Greybird-dark" && ibus-daemon -drx && ibus-setup && xfce4-settings-manager' >> ./Desktop/set-conf.sh && \
+   echo 'xfconf-query -c xsettings -p /Net/ThemeName -s "Greybird-dark" && ibus-daemon -drx && ibus-setup && xfce4-settings-manager && sudo apt update && sudo apt upgrade -y && exit' >> ./Desktop/set-conf.sh && \
    sleep infinity & wait
