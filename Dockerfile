@@ -25,7 +25,7 @@ RUN apt-get install --assume-yes python3-packaging python3-xdg
 RUN apt-get install libutempter0
 RUN wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 RUN apt-get install --assume-yes --fix-missing ./chrome-remote-desktop_current_amd64.deb
-RUN apt-get install --assume-yes --fix-missing mozc-ut ibus-mozc mozc-utils-gui fonts-noto fonts-noto-cjk fonts-noto-color-emoji
+RUN apt-get install --assume-yes --fix-missing ibus-mozc mozc-utils-gui fonts-noto fonts-noto-cjk fonts-noto-color-emoji
 RUN apt-get install --assume-yes --fix-missing firefox fonts-lyx speech-dispatcher
 RUN apt-get install --assume-yes --fix-missing vlc gimp gedit
 RUN apt-get install --assume-yes --fix-broken
