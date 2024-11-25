@@ -37,3 +37,7 @@ codeの引数をコピーします。そして、その値を`env.txt`の`CODE=`
 source ./run.sh
 ```
 を実行するだけです。上手くいけば、Chrome remote desktopからubuntuのGUI環境にアクセスできるようになります。
+
+## メモメモ
+
+アプデしました。gimpとかを最初からインストールするように()
