@@ -30,6 +30,7 @@ RUN apt-get install --assume-yes --fix-missing firefox fonts-lyx speech-dispatch
 RUN apt-get install --assume-yes --fix-missing vlc gimp gedit
 RUN apt-get install --assume-yes --fix-broken
 RUN bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
+RUN echo -e "[boot]\nsystemd=true" >> /etc/wsl.conf
 # RUN bash -c 'echo "exec /etc/X11/Xsession /usr/bin/startplasma-x11" > /etc/chrome-remote-desktop-session'
 # ---------------------------------------------------------- 
 # SPECIFY VARIABLES FOR SETTING UP CHROME REMOTE DESKTOP
