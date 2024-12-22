@@ -64,6 +64,6 @@ CMD \
    sudo service chrome-remote-desktop start && \
    sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 && \
    echo $HOSTNAME && \
-   echo 'xfconf-query -c xsettings -p /Net/ThemeName -s "Greybird-dark" && ibus-daemon -drx && ibus-setup && xfce4-settings-manager && sudo apt update && sudo apt upgrade -y && sudo apt install --fix-missing language-pack-ja -y && sudo update-locale LANG=ja_JP.UTF8 && sudo dpkg-reconfigure tzdata Asia/Tokyo && sudo apt install --fix-missing manpages-ja manpages-ja-dev -y && exit' >> ./conf && \
+   echo 'xfconf-query -c xsettings -p /Net/ThemeName -s "Greybird-dark" && ibus-daemon -drx && ibus-setup && xfce4-settings-manager && sudo apt update && sudo apt upgrade -y && sudo apt install --fix-missing language-pack-ja -y && sudo update-locale LANG=ja_JP.UTF8 && sudo dpkg-reconfigure tzdata && sudo apt install --fix-missing manpages-ja manpages-ja-dev -y && exit' >> ./conf && \
    echo 'source ./conf' >> ./.bash_history && \
    sleep infinity & wait
